@@ -1,0 +1,90 @@
+{
+    "name": "ynab-sdk-laravel/ynab-sdk-laravel",
+    "description": "An SDK for working with YNAB's API in Laravel.",
+    "license": "MIT",
+    "keywords": [
+        "ynab-sdk-laravel",
+        "laravel",
+        "ynab",
+        "sdk"
+    ],
+    "authors": [
+        {
+            "name": "Daniel Haven",
+            "email": "d-haven@outlook.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/ynab-sdk-laravel/ynab-sdk-laravel",
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.9",
+        "guzzlehttp/promises": "^2.0",
+        "illuminate/contracts": "^10.0 || ^11.0",
+        "spatie/laravel-package-tools": "^1.16.6"
+    },
+    "require-dev": {
+        "larastan/larastan": "^2.9.12",
+        "laravel/pint": "^1.18.3",
+        "nunomaduro/collision": "^7.10.0 || ^8.5.0",
+        "orchestra/testbench": "^8.22.0 || ^9.6.1",
+        "pestphp/pest": "^2.36",
+        "pestphp/pest-plugin-arch": "^2.7",
+        "pestphp/pest-plugin-laravel": "^2.4",
+        "phpstan/extension-installer": "^1.4.3",
+        "phpstan/phpstan-deprecation-rules": "^1.2.1",
+        "phpstan/phpstan-phpunit": "^1.4.1",
+        "projektgopher/whisky": "^0.7.0",
+        "spatie/laravel-ray": "^1.37.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "YnabSdkLaravel\\YnabSdkLaravel\\": "src/",
+            "YnabSdkLaravel\\YnabSdkLaravel\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "YnabSdkLaravel\\YnabSdkLaravel\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Ynab": "YnabSdkLaravel\\YnabSdkLaravel\\Facades\\Ynab"
+            },
+            "providers": [
+                "YnabSdkLaravel\\YnabSdkLaravel\\YnabSdkLaravelServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "analyse": "vendor/bin/phpstan analyse",
+        "build": [
+            "@composer run prepare",
+            "@php vendor/bin/testbench workbench:build --ansi"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-ynab-sdk-laravel --ansi",
+        "format": "vendor/bin/pint",
+        "lint": "vendor/bin/pint --dirty",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer run build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    }
+}
