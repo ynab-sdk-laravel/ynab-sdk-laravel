@@ -2,6 +2,16 @@
 
 All notable changes to `ynab-sdk-laravel` will be documented in this file.
 
+## v1.1.2 - 2025-10-16
+
+### What's Changed
+
+* Bump stefanzweifel/git-auto-commit-action from 6 to 7 by @dependabot[bot] in https://github.com/ynab-sdk-laravel/ynab-sdk-laravel/pull/7
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/ynab-sdk-laravel/ynab-sdk-laravel/pull/6
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/ynab-sdk-laravel/ynab-sdk-laravel/pull/5
+
+**Full Changelog**: https://github.com/ynab-sdk-laravel/ynab-sdk-laravel/compare/v1.1.1...v1.1.2
+
 ## v1.1.1 - 2025-07-28
 
 ### What's Changed
